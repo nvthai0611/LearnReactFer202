@@ -9,4 +9,6 @@ console.log(`Tich: ${a * b}`);
 // còn lại làm như bthg 
 
 
+// hello anh em nhé
+
 
