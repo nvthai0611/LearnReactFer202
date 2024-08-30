@@ -318,9 +318,28 @@ if(indexMatch !== -1){
       ]
     }
   ]
-    // let traiMang = movies.flatMap((mov) => {
-    //     return mov.genres.map(gen => gen); // mảng [comedy, action]
-    // });
+  // Cách 1
+    let traiMang = movies.flatMap((mov) => {
+        return mov.genres.map(gen => gen); // mảng [comedy, action]
+    });
+    console.log(traiMang);
+    let mangOnly = [...new Set(traiMang)];
+    console.log(mangOnly);
+    
+    // Cách 2: Dùng reduce
+
+    let mangOnly2 = movies.reduce((mang, movie) => {
+         movie.genres.forEach(gen => {
+            if(!mang.includes(gen)){
+                mang.push(gen);
+            }
+        });
+        return mang;
+    }, []);
+    console.log(mangOnly2);
+    
+  
+    
     // console.log(traiMang);
     // mình muốn các giá trị trùng lặp biến mất (reduce => O(n))
     // Set => lọc các giá trị trùng nhau
