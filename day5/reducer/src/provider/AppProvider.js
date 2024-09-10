@@ -49,7 +49,10 @@ const sampleProducts = [
   },
 ];
 function AppProvider({ children }) {
-  const [state, dispatch] = useReducer(reducer, initState);
+  //3 tham số
+  // const [state2, setState2] = useState([]);
+
+  const [state, dispatch] = useReducer(reducer, initState); //(action, state)
   const data = {
     state, dispatch, sampleProducts
   }

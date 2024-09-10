@@ -1,11 +1,15 @@
 import React, { useContext } from 'react'
 import AppContext from '../provider/Context'
+import { Link } from 'react-router-dom';
 
 function ListProducts() {
-    const {sampleProducts, dispatch} = useContext(AppContext);
+    const {sampleProducts, dispatch, state} = useContext(AppContext);
+    const {items} = state;
   return (
-    <div>
+    <div className='col-md-9'>
         <h1>List Products</h1>
+        {/* Link -> chuyển hướng trang */}
+        <p><Link to={'/cart'}>Cart: [{items.length}]</Link></p>
         <div style={{display: 'flex', justifyContent:'space-around'}}>
         {
             sampleProducts.map((p) => (

@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import AppContext from '../provider/Context'
+import { Link } from 'react-router-dom';
 
 function CartItem() {
     const {state, dispatch} = useContext(AppContext);
@@ -8,6 +9,7 @@ function CartItem() {
   return (
     <div>
         <h1>List Cart Items</h1>
+        <p><Link to={'/'}>Back to home</Link></p>
         <div>
             <div className='giaHang'>Gior hàng: {items.length}</div>
             <div style={{display: 'flex'}} className='cart'>

@@ -6,9 +6,12 @@ export const initState = {
   items: [], // khai báo items trong giả hàng
 };
 
+// items = [],
+// [newItem] => thay thế toàn bộ sản phẩm cũ thành newItem
+// [...items, newItem] => thêm newItem vào cuối mảng
 // Khởi tạo action
 const ADD_TO_CART = "addtocard";
-const DELETE_ITEM = "deleteItem";
+const DELETE_ITEM = "deleteitem";
 const DELETE_ALL = "deleteAll";
 // const products =  [
 //     {

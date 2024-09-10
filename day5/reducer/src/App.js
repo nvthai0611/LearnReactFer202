@@ -1,7 +1,12 @@
 import { Route, Routes } from "react-router-dom";
-import {useContext, useReducer, useState} from 'react';
+import { Fragment, useContext, useReducer, useState } from "react";
 import ListProducts from "./components/ListProducts";
 import CartItem from "./components/CartItem";
+import publicRouter from "./router";
+import Header from "./components/Header";
+import Navbar from "./components/Navbar";
+import ListSanpham from "./components/ListSanpham";
+import DefaultLayout from "./DefaultLayout/DefaultLayout";
 
 // // Khai báo initState
 // const initState = 0;
@@ -9,7 +14,6 @@ import CartItem from "./components/CartItem";
 // // Khai báo action
 // const UP_ACTION = "up";
 // const DOWN_ACTION = "down";
-
 
 // // Khai báo reducer
 // const reducer = (state, action) => {
@@ -26,10 +30,27 @@ import CartItem from "./components/CartItem";
 function App() {
   // const [count, dispatch] = useReducer(reducer, initState);
   return (
-    <div className="container-fluid">
-      <ListProducts/>
-      <hr></hr>
-      <CartItem/>
+    <div className="container">
+      <div className="row">
+        <Routes>
+          {publicRouter.map((route) => {
+            // Khi route.layout = null => <></> thay vì defaultLayout
+            const Page = route.component;
+            const Layout = route.layout === null ? Fragment : DefaultLayout
+            return (
+              <Route
+                key={route.path}
+                path={route.path}
+                element={
+                  <Layout>
+                    <Page />
+                  </Layout>
+                }
+              />
+            );
+          })}
+        </Routes>
+      </div>
     </div>
   );
 }
