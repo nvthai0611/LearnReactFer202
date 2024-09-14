@@ -1,26 +1,37 @@
 import React from 'react'
-import {useContext} from 'react'
+import {useContext, useState, useEffect} from 'react'
 import AppContext from '../provider/Context';
+import {Link, useLocation} from 'react-router-dom'
 function ListStudent() {
-    const {students, stuDetail, searchName, searchNav, setSearchName, setSearchNav} = useContext(AppContext);
-    
+    const {students, stuDetail, searchName, searchNav, setSearchName, setSearchNav, studentsSubjetcs} = useContext(AppContext);
+    const [filterNavbar, setFilterNavbar] = useState([]);
+    const searchParrams = new URLSearchParams(useLocation().search);
+    const subjectId = searchParrams.get('subject');
+    // console.log(subjectId);
+    useEffect(() => {
+        const getStudentSubject = studentsSubjetcs
+        .filter((stuSub) => stuSub.subjectId === subjectId)
+        .map((stuSub) => stuSub.studentId);
+        setFilterNavbar(getStudentSubject);
+    }, [subjectId])
     const getDetail = (stuId) => {
        const studentMatch = stuDetail?.find((detail) => detail?.studentId == stuId);
        return studentMatch ? studentMatch : 'unknow';
     }
     const filterStudent = students.filter((stu) => {
         const nameMatch = stu.name.toLowerCase().includes(searchName.toLowerCase()) || searchName === '';
-        const navMatch = searchNav?.includes(stu.studentId) || searchNav?.length === 0;
+        const navMatch = filterNavbar?.includes(stu.studentId) || filterNavbar?.length === 0;
         return nameMatch && navMatch;
     });
+    console.log(filterNavbar);
     const handleShowALl= () => {
         setSearchName('');
         setSearchNav([]);
     }
   return (
-    <div>
+    <div className='col-md-9'>
         <h3>List Students</h3>
-        <button className='btn btn-primary' onClick={handleShowALl}>Show all</button>
+        <Link className='btn btn-primary' to={'/student'}>Show all</Link>
         <table className='table table-hover'>
             <thead>
                 <tr>
@@ -43,7 +54,7 @@ function ListStudent() {
                             <td>{getDetail(stu.studentId)?.address?.street}</td>
                             <td>{getDetail(stu.studentId)?.address?.city}</td>
                             <td>{stu.isRegularStudent ? 'fulltime' : 'no fulltime'}</td>
-                            <td><a href=''>Grades</a></td>
+                            <td><Link to={`/student/${stu.studentId}`}>Grades</Link></td>
                         </tr>
                     ))
                 }

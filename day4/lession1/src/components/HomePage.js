@@ -13,9 +13,6 @@ function HomePage() {
         <div className='col-md-3'>
             <SearchNavbar/>
         </div>
-        <div className='col-md-9'>
-            <ListStudent/>
-        </div>
     </div>
   )
 }

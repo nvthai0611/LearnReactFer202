@@ -6,6 +6,7 @@ function AppProvider({ children }) {
   const [students, setStudents] = useState([]);
   const [subjects, setSubjects] = useState([]);
   const [stuDetail, setStuDetail] = useState([]);
+  const [evaluations, setEvaluations] = useState([]);
   const [studentsSubjetcs, setStudentsSubjetcs] = useState([]);
   const [searchName, setSearchName] = useState('');
   const [searchNav, setSearchNav] = useState([]);
@@ -30,7 +31,8 @@ function AppProvider({ children }) {
             setStuDetail(resStuDetail.data);
             const resStuSubject = await axios.get(`http://localhost:9999/students_subjetcs`);
             setStudentsSubjetcs(resStuSubject.data);
-            console.log(studentsSubjetcs);
+            const resEvaluations = await axios.get(`http://localhost:9999/evaluations`);
+            setEvaluations(resEvaluations.data);
             
         } catch (error) {
             console.log(error); 
@@ -39,7 +41,7 @@ function AppProvider({ children }) {
     fetchData();
   }, []);
   const data = {
-    students, setStudents,subjects, setSubjects,stuDetail, searchName, setSearchName, searchNav, setSearchNav, studentsSubjetcs, setStudentsSubjetcs
+    students, setStudents,subjects, setSubjects,stuDetail, searchName, setSearchName, searchNav, setSearchNav, studentsSubjetcs, setStudentsSubjetcs,evaluations, setEvaluations
   };
   return <AppContext.Provider value={data}>{children}</AppContext.Provider>;
 }
