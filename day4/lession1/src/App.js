@@ -11,7 +11,7 @@ import Count from "./components/Counter/Count";
 function App() {
   return (
     <div className="container-fluid">
-      {/* <div className="row">
+      <div className="row">
         <h1 style={{ textAlign: "center" }}>Student management</h1>
         <div className="col-md-12">
           <SearchName />
@@ -28,8 +28,8 @@ function App() {
         </div>
       </div>
       <hr></hr>
-      <h4 style={{ textAlign: "center" }}>Copyright : He******</h4> */}
-      <Count/>
+      <h4 style={{ textAlign: "center" }}>Copyright : He******</h4>
+      {/* <Count/> */}
     </div>
   );
 }

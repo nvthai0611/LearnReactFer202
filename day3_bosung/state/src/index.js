@@ -6,10 +6,8 @@ import AppProvider from "./provider/AppProvider";
 import 'bootstrap/dist/css/bootstrap.min.css'
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <Router>
-      <AppProvider>
-        <App /> 
-        {/* `1 props */}
-      </AppProvider>
-    </Router>
+    // <Router>
+    //   <AppProvider>
+        <App />
+
 );

@@ -2,12 +2,13 @@ import React from 'react'
 import {useContext, useState, useEffect} from 'react'
 import AppContext from '../provider/Context';
 import {Link, useLocation} from 'react-router-dom'
+import SearchName from './SearchName';
 function ListStudent() {
     const {students, stuDetail, searchName, searchNav, setSearchName, setSearchNav, studentsSubjetcs} = useContext(AppContext);
     const [filterNavbar, setFilterNavbar] = useState([]);
     const searchParrams = new URLSearchParams(useLocation().search);
     const subjectId = searchParrams.get('subject');
-    // console.log(subjectId);
+   
     useEffect(() => {
         const getStudentSubject = studentsSubjetcs
         .filter((stuSub) => stuSub.subjectId === subjectId)

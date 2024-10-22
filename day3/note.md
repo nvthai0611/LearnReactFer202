@@ -25,7 +25,7 @@ vd: npm i bootstrap react-bootstrap
 - là đối số truyền qua hàm nhận đối số
 
 
-## useState- -> Hook lưu trữ cũng như chập trạng thái cho tham số
+## useState- -> Hook lưu trữ cũng như cập trạng thái cho tham số
 
 - useState: trạng thái ban đầu
             Hàm xử lí thay đổi trạng thái (khai báo giá trị ban đầu của trạng thái)

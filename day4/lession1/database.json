@@ -93,6 +93,36 @@
       "studentId": "HE1710002",
       "grade": 9,
       "additionalExplanation": "PRO192 course"
+    },
+    {
+      "studentId": "HE1710001",
+      "grade": "123",
+      "additionalExplanation": "123",
+      "id": 6
+    },
+    {
+      "studentId": "HE1710001",
+      "grade": "1234",
+      "additionalExplanation": "1234",
+      "id": 7
+    },
+    {
+      "studentId": "HE1710001",
+      "grade": "1",
+      "additionalExplanation": "1",
+      "id": 8
+    },
+    {
+      "studentId": "HE1710001",
+      "grade": "1",
+      "additionalExplanation": "1",
+      "id": 9
+    },
+    {
+      "studentId": "HE1710001",
+      "grade": "1",
+      "additionalExplanation": "1",
+      "id": 10
     }
   ],
   "subjects": [
@@ -120,6 +150,16 @@
       "id": 5,
       "subjectId": "PRJ301",
       "name": "Programming Java Web"
+    },
+    {
+      "subjectId": "123",
+      "name": "123",
+      "id": 6
+    },
+    {
+      "subjectId": "1",
+      "name": "1",
+      "id": 7
     }
   ],
   "students_subjetcs": [

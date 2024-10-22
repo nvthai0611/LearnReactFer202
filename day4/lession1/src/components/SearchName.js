@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import AppContext from "../provider/Context";
+import SearchNavbar from "./SearchNavbar";
 function SearchName() {
   const { searchName, setSearchName } = useContext(AppContext);
 
